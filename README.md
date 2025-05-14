@@ -1,2 +1,2 @@
 # aws-developer-labs
-AWS developer certification pre labs 
+AWS Solutions Architect Associate Certification (SAA-C03) pre labs 
