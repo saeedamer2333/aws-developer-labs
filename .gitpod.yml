@@ -1,8 +1,11 @@
 tasks:
-  # random utils
+  # Install random utilities like `tree`
   - name: utils
     before: |
-      sudo apt-get-install tree
+      sudo apt-get update
+      sudo apt-get install -y tree
+
+  # Install AWS CLI with auto-prompt enabled
   - name: aws-cli
     env: 
       AWS_CLI_AUTO_PROMPT: on-partial
@@ -12,13 +15,14 @@ tasks:
       unzip awscliv2.zip
       sudo ./aws/install
 
-  - name:  aws-confgureation-aotu
+  # Configure AWS credentials using environment variables
+  - name: aws-configuration-auto
     before: |
+      mkdir -p ~/.aws
+
       echo "[default]" > ~/.aws/credentials
       echo "aws_access_key_id=${AWS_ACCESS_KEY_ID}" >> ~/.aws/credentials
       echo "aws_secret_access_key=${AWS_SECRET_ACCESS_KEY}" >> ~/.aws/credentials
 
       echo "[default]" > ~/.aws/config
       echo "region=${AWS_DEFAULT_REGION:-ap-southeast-1}" >> ~/.aws/config
-
-    
