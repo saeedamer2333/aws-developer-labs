@@ -4,7 +4,7 @@ tasks:
     before: |
       sudp apt-get-install tree
   - name: aws-cli
-    env:
+    env: 
       AWS_CLI_AUTO_PROMPT: on-partial
     before: |
       cd /workspace
@@ -13,7 +13,7 @@ tasks:
       sudo ./aws/install
 
   - name :  aws-confgureation-aotu
-    before: 
+    before: |
       echo "[default]" > ~/.aws/credentials
       echo "aws_access_key_id=${AWS_ACCESS_KEY_ID}" >> ~/.aws/credentials
       echo "aws_secret_access_key=${AWS_SECRET_ACCESS_KEY}" >> ~/.aws/credentials
