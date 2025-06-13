@@ -11,6 +11,6 @@ BUCKET_NAME=$1
 # https://docs.aws.amazon.com/cli/latest/reference/s3api/create-bucket.html
 aws s3api create-bucket \
 --bucket $BUCKET_NAME \
---create-bucket-configuration="LocationConstraint=ap-southeast-1" \   # accoure this type of error IllegalLocationConstraintException without LocationConstraint if and only the region in us-east-1ob 
---query Location \
+--create-bucket-configuration="LocationConstraint=ap-southeast-1" \
 --output text
+
